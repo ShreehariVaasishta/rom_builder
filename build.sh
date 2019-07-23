@@ -48,7 +48,7 @@ telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
 trim_darwin >/dev/null   2>&1
 repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all) -q 2>&1 >>logwe 2>&1
-bash /drone/src/clone.sh
+bash /drone/src/clone.sh >/dev/null  2>&1
 SYNC_END=$(date +"%s")
 SYNC_DIFF=$((SYNC_END - SYNC_START))
 if [ -e frameworks/base ]; then
@@ -63,7 +63,7 @@ Build Started: [See Progress]("$ci_url")"
     . build/envsetup.sh >/dev/null  2>&1
     source /drone/src/config.sh
     lunch "$rom_vendor_name"_"$device"-userdebug >/dev/null  2>&1
-    mka bacon | grep "$device"
+    mka kronic | grep "$device"
     BUILD_END=$(date +"%s")
     BUILD_DIFF=$((BUILD_END - BUILD_START))
 
@@ -75,7 +75,7 @@ Build Started: [See Progress]("$ci_url")"
 
         echo "Uploading"
 
-        github-release "$release_repo" "$tag" "master" ""$ROM" for "$device"
+        github-release "$release_repo" "$tag" "lineage-16.0" ""$ROM" for "$device"
 
 Date: $(env TZ="$timezone" date)" "$finalzip_path"
 
