@@ -15,15 +15,6 @@ export TELEGRAM_TOKEN
 export TELEGRAM_CHAT
 export GITHUB_TOKEN
 
-function trim_darwin() {
-    cd .repo/manifests
-    cat default.xml | grep -v darwin  >temp  && cat temp >default.xml  && rm temp
-    git commit -a -m "Magic"
-    cd ../
-    cat manifest.xml | grep -v darwin  >temp  && cat temp >manifest.xml  && rm temp
-    cd ../
-}
-
 export outdir="out/target/product/$device"
 ci_url="$(echo "https://cloud.drone.io/"$ci_repo"/"$(cat /tmp/build_no)"/1/2" | tr -d " ")"
 
@@ -46,7 +37,6 @@ repo init -u "$manifest_url" -b "$branch" --depth 1 >/dev/null  2>&1
 echo "Sync started for "$manifest_url""
 telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
-trim_darwin >/dev/null   2>&1
 repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all) -q 2>&1 >>logwe 2>&1
 bash /drone/src/clone.sh >/dev/null  2>&1
 SYNC_END=$(date +"%s")
