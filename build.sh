@@ -38,7 +38,7 @@ echo "Sync started for "$manifest_url""
 telegram -M "Sync Started for ["$ROM"]("$manifest_url")"
 SYNC_START=$(date +"%s")
 repo sync --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all) -q 2>&1 >>logwe 2>&1
-bash /drone/src/clone.sh >/dev/null  2>&1
+bash /drone/src/clone.sh
 SYNC_END=$(date +"%s")
 SYNC_DIFF=$((SYNC_END - SYNC_START))
 if [ -e frameworks/base ]; then
