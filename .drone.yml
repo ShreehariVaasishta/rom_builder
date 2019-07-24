@@ -1,5 +1,5 @@
 kind: pipeline
-name: LazyMachine
+name: GoldenEagle
 
 steps:
 - name: ROM

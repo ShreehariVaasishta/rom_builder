@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# write commands if you want to clone some repos
-
-git clone https://github.com/rk779/android_kernel_leeco_msm8976.git -b lineage-16.0 kernel/leeco/msm8976
-git clone https://github.com/pixelexperience-devices/vendor_leeco.git -b pie vendor/leeco
-git clone https://github.com/LeEcoDevs/android_device_leeco_s2.git -b aosip device/leeco/s2
-git clone https://github.com/LineageOS/android_packages_resources_devicesettings.git -b lineage-16.0 packages/resources/devicesettings
+# write commands if you want to clone some repo
+git clone https://GARYHARY@bitbucket.org/GARYHARY/device_smartron_rimo02a.git -b  dot-p device/smartron/rimo02a
+git clone https://GARYHARY@bitbucket.org/GARYHARY/vendor_smartron_rimo02a.git -b dotp vendor/smartron/rimo02a
+git clone https://gitlab.com/Hari9481/kernel_smartron_msm8976.git -b GoldenEagle kernel/smartron/msm8976
