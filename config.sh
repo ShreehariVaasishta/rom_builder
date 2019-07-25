@@ -8,10 +8,10 @@ KBUILD_BUILD_HOST="DroneCI"
 
 device=rimo02a
 
-ROM="DotOS"
-manifest_url="https://github.com/DotOS/manifest"
-rom_vendor_name="dot" # This represent the nams used by different rom vendors, Ex - aosp_harpia-userdebug, aosp is vendor name.
-branch="dot-p"
+ROM="superior"
+manifest_url="https://github.com/SuperiorOS/manifest"
+rom_vendor_name="superior" # This represent the nams used by different rom vendors, Ex - aosp_harpia-userdebug, aosp is vendor name.
+branch="pie"
 
 release_repo="ShreehariVaasishta/releases"
 
