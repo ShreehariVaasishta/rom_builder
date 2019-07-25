@@ -52,6 +52,7 @@ Build Started: [See Progress]("$ci_url")"
 
     . build/envsetup.sh >/dev/null  2>&1
     source /drone/src/config.sh
+    export SUPERIOR_OFFICIAL=true
     lunch "$rom_vendor_name"_"$device"-userdebug >/dev/null  2>&1
     mka bacon | grep "$device"
     BUILD_END=$(date +"%s")
